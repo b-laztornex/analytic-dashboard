@@ -1,3 +1,20 @@
+/* Centered warning when no patient is selected */
+.no-patient{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2000;
+	background: rgba(220,38,38,.15);
+	color: #ef4444;
+	border: 1px solid rgba(239,68,68,.4);
+	border-radius: 10px;
+	padding: 12px 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: .4px;
+	box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
 .logout{position:fixed;top:16px;right:16px;z-index:40}
 .logout button{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:10px;border:1px solid #e5e7eb;background:#fff;color:#0f172a;font-weight:600;box-shadow:0 6px 18px rgba(2,6,23,.12);cursor:pointer}
 .logout button:hover{box-shadow:0 8px 22px rgba(2,6,23,.16)}

@@ -41,12 +41,17 @@ export class LoginComponent {
     this.authError.set('');
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      // Shake the card on validation errors
+      const card = document.querySelector('.login-card');
+      card?.classList.remove('shake');
+      (card as HTMLElement)?.offsetWidth; // reflow to restart animation
+      card?.classList.add('shake');
       return;
     }
     const { username, password } = this.form.getRawValue();
     if (username !== this.correctUser || password !== this.correctPass) {
       this.authError.set('Invalid username or password');
-      // Briefly add a shake effect via class toggle
+      // Shake the card on auth error
       const card = document.querySelector('.login-card');
       card?.classList.remove('shake');
       // Reflow to restart animation

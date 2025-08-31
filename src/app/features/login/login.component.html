@@ -2,7 +2,7 @@
   <div class="bg"></div>
   <div class="login-card">
     <div class="brand">
-      <div class="logo">🫀</div>
+      <img class="logo" src="/logoa.png" alt="Cardio Insights" />
       <div class="title">Analytic Dashboard</div>
       <div class="subtitle">Sign in to continue</div>
     </div>
@@ -19,7 +19,7 @@
       <div class="field" [class.invalid]="form.controls.password.touched && form.controls.password.invalid">
         <label>Password</label>
         <div class="password">
-          <input [type]="showPassword() ? 'text' : 'password'" formControlName="password" placeholder="" autocomplete="current-password" />
+          <input [type]="showPassword() ? 'text' : 'password'" formControlName="password" placeholder="Enter your password" autocomplete="current-password" />
           <button
             type="button"
             class="toggle"

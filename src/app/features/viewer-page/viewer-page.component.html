@@ -1,4 +1,9 @@
 <div class="logout">
 	<button (click)="logout()" aria-label="Log out">⎋ Logout</button>
 	</div>
+
+@if (!selectedId()) {
+  <div class="no-patient">No patient is selected</div>
+}
+
 <three-canvas/>

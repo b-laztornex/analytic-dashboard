@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" [class.terms-open]="termsOpen()">
   <div class="footer__content">
     <div class="footer__left">
       <span class="brand">Analytic Dashboard</span>
@@ -8,6 +8,38 @@
     <div class="footer__right">
       <a routerLink="/viewer">3D Viewer</a>
       <a routerLink="/plots">Analytics</a>
+      <button type="button" class="link-btn" (click)="openTerms()">Terms & Conditions</button>
     </div>
   </div>
+
+@if (termsOpen()) {
+  <div class="modal-backdrop" (click)="onBackdrop($event)" (keydown)="onEsc($event)" tabindex="-1">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+      <header class="modal-head">
+        <h2 id="termsTitle">Terms & Conditions</h2>
+        <button class="icon-btn" type="button" aria-label="Close" (click)="closeTerms()">✕</button>
+      </header>
+      <section class="modal-body">
+        <p><strong>Clinical Use Disclaimer.</strong> This application constitutes an adjunctive visualization and decision‑support interface intended exclusively for qualified healthcare professionals. It does not substitute clinical acumen, guideline‑concordant care pathways, or multidisciplinary consensus.</p>
+        <p><strong>Analytic Scope and Limitations.</strong> Quantitative and qualitative outputs (including but not limited to chamber volumetrics, ejection fraction surrogates, myocardial strain heuristics, flow vectors, and lesion annotations) are derived from computational models that may be affected by noise, acquisition artifacts, class imbalance, and out‑of‑distribution phenotypes (e.g., corrected congenital heart disease, noncompaction cardiomyopathy, extreme remodeling).</p>
+        <p><strong>No Diagnostic Assertion.</strong> Visual overlays, 2D/3D reconstructions, and note annotations are for educational and planning support; they are not definitive diagnostic statements, nor are they validated biomarkers or substitutes for standard imaging modalities and invasive hemodynamics.</p>
+        <p><strong>Risk Allocation.</strong> The software is provided “as is,” without warranties of any kind. Users assume responsibility for verification, cross‑modal corroboration (e.g., echo, CT, MR, angiography), intra‑procedural guidance, and adherence to institutional protocols.</p>
+        <p><strong>Medical‑Legal Compliance.</strong> You are responsible for compliance with HIPAA/GDPR and local data protection statutes, including lawful basis for processing, consent where required, de‑identification or pseudonymization, retention schedules, and incident response. Audit logs and access controls must be configured in your operational environment.</p>
+        <p><strong>Algorithmic Generalization.</strong> Performance may degrade in the presence of atypical anatomies, prior surgical repairs, device artifacts, arrhythmias, or hemodynamic extremes. All automated contours, anchors, and measurements require clinician verification.</p>
+        <p><strong>Regulatory Status.</strong> Unless explicitly certified in your jurisdiction, this software is designated for research or investigational use and shall not be used as a sole basis for diagnosis or therapeutic decision‑making.</p>
+        <h3>Medical Provisions</h3>
+        <ul>
+          <li>References to LV/RV, septum, apex, LVOT/RVOT, annuli, and great vessels are schematic aids; validate with multiplanar imaging.</li>
+          <li>Hemodynamic surrogates are modeling estimates and not catheter‑derived measurements.</li>
+          <li>Peri‑procedural use requires correlation with echocardiography/fluoroscopy and adherence to perioperative safety protocols.</li>
+        </ul>
+        <p>By continuing, you affirm clinical responsibility for interpretation and application of all outputs and agree to implement appropriate privacy, security, and quality safeguards.</p>
+      </section>
+      <footer class="modal-foot">
+        <button class="ghost" type="button" (click)="closeTerms()">Close</button>
+        <button class="primary" type="button" (click)="closeTerms()">I Agree</button>
+      </footer>
+    </div>
+  </div>
+}
 </footer>

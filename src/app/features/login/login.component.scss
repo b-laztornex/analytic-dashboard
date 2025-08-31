@@ -28,17 +28,18 @@
 
 
 .brand{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:18px}
-.logo{font-size:28px}
+.logo{width:48px;height:48px;object-fit:contain;border-radius:10px}
 .title{font-weight:800;font-size:20px;color:#fff}
 .subtitle{color:#cbd5e1;font-size:12px}
 .field{display:flex;flex-direction:column;gap:6px;margin:12px 0}
 .field label{font-weight:600;color:#e2e8f0;font-size:12px}
-.field input{width:100%;height:40px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px;outline:none;background:#fff;color:#0f172a;transition:border-color .15s ease, box-shadow .15s ease}
+.field input{width:100%;max-width:100%;box-sizing:border-box;height:40px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px;outline:none;background:rgba(255,255,255,.92);backdrop-filter:blur(1px);color:#0f172a;transition:border-color .15s ease, box-shadow .15s ease}
 .field input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.15)}
 .field.invalid input{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.12)}
-.password{display:flex;align-items:center;gap:8px}
-.password .toggle{display:inline-grid;place-items:center;height:36px;width:36px;padding:0;border-radius:8px;border:1px solid #e5e7eb;background:#f8fafc;color:#334155;cursor:pointer;transition:background .15s ease,border-color .15s ease}
-.password .toggle:hover{background:#f1f5f9;border-color:#d1d5db}
+.password{position:relative;display:block;width:100%}
+.password input{padding-right:44px}
+.password .toggle{position:absolute;top:50%;right:8px;transform:translateY(-50%);display:inline-grid;place-items:center;height:36px;width:36px;padding:0;border:none;background:transparent;color:#334155;cursor:pointer;transition:color .15s ease}
+.password .toggle:hover{color:#0f172a}
 .password .toggle svg{width:18px;height:18px}
 .error{color:#ef4444;font-size:12px}
 .auth-error{margin-top:6px;color:#b91c1c;background:#fee2e2;border:1px solid #fecaca;padding:8px 10px;border-radius:10px;font-size:12px}
@@ -54,5 +55,5 @@
 @keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
 
 /* Shake on error */
-.shake{animation:shake .35s ease}
-@keyframes shake{10%{transform:translateX(-2px)}20%{transform:translateX(2px)}30%{transform:translateX(-2px)}40%{transform:translateX(2px)}60%{transform:translateX(-1px)}80%{transform:translateX(1px)}100%{transform:translateX(0)}}
+.shake{animation:shake 1s ease}
+@keyframes shake{10%{transform:translateX(-3px)}20%{transform:translateX(3px)}30%{transform:translateX(-3px)}40%{transform:translateX(3px)}60%{transform:translateX(-2px)}80%{transform:translateX(2px)}100%{transform:translateX(0)}}
